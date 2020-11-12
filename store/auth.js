@@ -25,12 +25,6 @@ export const actions = {
 
   async login ({ commit }, { username, password }) {
     const user = await Auth.signIn(username, password)
-    if (user.challengeName === 'NEW_PASSWORD_REQUIRED') {
-      return {
-        message: 'NEW_PASSWORD_REQUIRED',
-        user
-      }
-    }
     commit('set', user)
     return user
   },
