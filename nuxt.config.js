@@ -22,6 +22,16 @@ export default {
   css: [
   ],
 
+  // Environment Variables
+  env: {
+    IDENTITY_POOL_ID: process.env.IDENTITY_POOL_ID,
+    REGION: process.env.REGION,
+    USER_POOL_ID: process.env.USER_POOL_ID,
+    USER_POOL_WEB_CLIENT_ID: process.env.USER_POOL_WEB_CLIENT_ID,
+    ACCESS_KEY_ID: process.env.ACCESS_KEY_ID,
+    SECRET_ACCESS_KEY: process.env.SECRET_ACCESS_KEY
+  },
+
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
   ],
