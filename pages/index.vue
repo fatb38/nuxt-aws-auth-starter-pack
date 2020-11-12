@@ -15,7 +15,7 @@
         small
         block
         color="primary lighten-1"
-        @click="$store.dispatch('auth/logout')"
+        @click="logout"
       >
         Logout
       </v-btn>
@@ -24,7 +24,14 @@
 </template>
 
 <script>
-export default {}
+export default {
+  methods: {
+    async logout () {
+      await this.$store.dispatch('auth/logout')
+      this.$router.push('/login')
+    }
+  }
+}
 </script>
 
 <style scoped>

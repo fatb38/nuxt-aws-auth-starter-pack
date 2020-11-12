@@ -17,7 +17,7 @@
           label="Email"
           outlined
           dense
-          color="#C73E1D"
+          color="primary lighten-1"
           background-color="white"
         />
         <v-text-field
@@ -28,7 +28,7 @@
           :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
           outlined
           dense
-          color="#C73E1D"
+          color="primary lighten-1"
           background-color="white"
           @keyup.enter="login"
           @click:append="showPassword = !showPassword"

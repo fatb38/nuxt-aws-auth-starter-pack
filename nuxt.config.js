@@ -39,6 +39,13 @@ export default {
     '~/plugins/axios.js'
   ],
 
+  /*
+  ** Middleware lets you define custom functions that can be run before rendering either a page or a group of pages.
+  */
+  router: {
+    middleware: 'authenticated'
+  },
+
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
 
