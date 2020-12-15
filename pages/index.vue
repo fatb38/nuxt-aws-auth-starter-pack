@@ -8,13 +8,13 @@
         border="left"
         dense
       >
-        Welcome to the home page <span class="primary--text">{{ $auth.email }}</span><br>
+        Welcome to the home page <span class="blue--text">{{ $auth.email }}</span><br>
         You're logged in !
       </v-alert>
       <v-btn
         small
         block
-        color="primary lighten-1"
+        color="secondary"
         @click="logout"
       >
         Logout

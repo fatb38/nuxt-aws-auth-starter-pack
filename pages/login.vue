@@ -3,7 +3,6 @@
     width="400"
     class="login-card"
     elevation="8"
-    color="#FFFAE3"
   >
     <v-card-title>
       Amazon Cognito Sign In
