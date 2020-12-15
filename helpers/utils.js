@@ -5,7 +5,7 @@
  */
 export const FormValidationRules = {
   required: value => !!value || 'Required',
-  passwordLength: value => value.length >= 8 || 'Password must contain at least 8 characters',
+  passwordLength: (value, length) => value.length >= length || `Password must contain at least ${length} characters`,
   email: (value) => {
     const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     return pattern.test(value) || 'Invalid e-mail'

@@ -21,8 +21,9 @@
         />
         <v-text-field
           v-model="credentials.password"
-          :rules="[rules.required]"
+          :rules="[rules.required, rules.passwordLength(credentials.password, 4)]"
           label="Password"
+          counter
           :type="showPassword ? 'text' : 'password'"
           :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
           outlined
