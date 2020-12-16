@@ -15,7 +15,7 @@
         small
         block
         color="secondary"
-        @click="logout"
+        @click="performLogout"
       >
         Logout
       </v-btn>
@@ -24,10 +24,14 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
   methods: {
-    async logout () {
-      await this.$store.dispatch('auth/logout')
+    ...mapActions('auth', ['logout']),
+
+    async performLogout () {
+      await this.logout()
       this.$router.push('/login')
     }
   }

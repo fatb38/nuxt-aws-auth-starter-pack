@@ -30,7 +30,7 @@
           dense
           color="primary lighten-1"
           background-color="white"
-          @keyup.enter="login"
+          @keyup.enter="performLogin"
           @click:append="showPassword = !showPassword"
         />
       </v-form>
@@ -45,7 +45,7 @@
         color="success"
         small
         block
-        @click.native="login"
+        @click.native="performLogin"
       >
         Sign In
       </v-btn>
@@ -54,6 +54,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import { FormValidationRules } from '~/helpers/utils'
 
 export default {
@@ -72,10 +73,12 @@ export default {
   },
 
   methods: {
-    async login () {
+    ...mapActions('auth', ['login']),
+
+    async performLogin () {
       this.pending = true
       try {
-        await this.$store.dispatch('auth/login', this.credentials)
+        await this.login(this.credentials)
         this.$router.push('/')
       } catch ({ message }) {
         console.error(message)
