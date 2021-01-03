@@ -24,8 +24,8 @@ export default {
 
   // Environment Variables
   env: {
-    IDENTITY_POOL_ID: process.env.IDENTITY_POOL_ID,
     REGION: process.env.REGION,
+    IDENTITY_POOL_ID: process.env.IDENTITY_POOL_ID,
     USER_POOL_ID: process.env.USER_POOL_ID,
     USER_POOL_WEB_CLIENT_ID: process.env.USER_POOL_WEB_CLIENT_ID,
     ACCESS_KEY_ID: process.env.ACCESS_KEY_ID,
