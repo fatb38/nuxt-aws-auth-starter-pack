@@ -59,7 +59,6 @@ methods: {
       this.$router.push('/')
     } catch ({ message }) {
       console.error(message)
-    } finally {
       this.pending = false
     }
   }
