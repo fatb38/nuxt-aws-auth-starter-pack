@@ -19,19 +19,19 @@ $ npm run dev
 ```
 
 ## Getting Started
- App authentication required AWS credentials. They are set into environment variables in the `nuxt.config.js` file :
- 
+App authentication required AWS credentials. They are set into environment variables in the [`nuxt.config.js`](./nuxt.config.js) file :
+
 ```javascript
 env: {
-    REGION: process.env.REGION,
+  REGION: process.env.REGION,
     IDENTITY_POOL_ID: process.env.IDENTITY_POOL_ID,
     USER_POOL_ID: process.env.USER_POOL_ID,
     USER_POOL_WEB_CLIENT_ID: process.env.USER_POOL_WEB_CLIENT_ID,
     ACCESS_KEY_ID: process.env.ACCESS_KEY_ID,
     SECRET_ACCESS_KEY: process.env.SECRET_ACCESS_KEY
-  }
+}
 ```
-Create a local `.env` file into the root folder and simply add your secrets.  
+Create a local `.env` file into the root folder and simply add your secrets.
 ```dotenv
 REGION="eu-west-1"
 IDENTITY_POOL_ID="eu-west-1:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -45,7 +45,7 @@ Now you can test : just sign in with your AWS username / password !!
 ## Usage
 
 ### Amplify authentication methods
-All auth methods are available in Vue store actions into `store/auth.js`.  
+All auth methods are available in Vue store actions into [`auth.js`](./store/auth.js).  
 You can use it globally into the app with `$store.dispatch` or `mapActions` (see [Vuex guide](https://vuex.vuejs.org/fr/guide/actions.html) for store usage).  
 All methods are asynchronous and return the Amplify response object.
 
@@ -80,11 +80,11 @@ After a successful login, all user information are saved into auth store Object 
 
 ### Tokens into requests
 Axios is already set up to add the JWT token on each request and automatically refreshes it if needed.  
-The configuration is in the plugin folder into `axios.js` file
+The configuration is in the plugin folder into [`axios.js`](./plugins/axios.js) file
 
 
 ### Public and Protected Routes
-You can protect one or more routes, or the whole app if you need, thanks to the middleware `authenticated.js`.  
+You can protect one or more routes, or the whole app if you need, thanks to the middleware [`authenticated.js`](./middleware/authenticated.js).  
 A Nuxt middleware is a function executed before rendering a page. You can easily redirect user if not authenticated.  
 In this template, all routes are protected, the user is simply redirected towards login page if not authenticated. You also can add some public routes, see the comment below.
 
