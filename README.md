@@ -75,8 +75,13 @@ methods: {
 }
 ```
 
-After a successful login, all user information are saved into auth store Object `user` and JWT tokens into the local storage, thanks to Amplify.
+After a successful login, all user information are saved into auth store object `user` and JWT tokens into the local storage, thanks to Amplify.
 
+
+### AuthService Class
+The app comes with a custom [`auth.js`](./plugins/auth.js) plugin that builds a `AuthService Class` available with global `$auth` variable.  
+It's useful to add some getters to the user object (for example to check if authenticated or to get email etc...) rather than getting through the store state.    
+By default, it provides authentication state, user, email and profil picture, but let free to add your own getters !
 
 ### Tokens into requests
 Axios is already set up to add the JWT token on each request and automatically refreshes it if needed.  
