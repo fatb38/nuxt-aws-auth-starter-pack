@@ -24,11 +24,11 @@ App authentication required AWS credentials. They are set into environment varia
 ```javascript
 env: {
   REGION: process.env.REGION,
-    IDENTITY_POOL_ID: process.env.IDENTITY_POOL_ID,
-    USER_POOL_ID: process.env.USER_POOL_ID,
-    USER_POOL_WEB_CLIENT_ID: process.env.USER_POOL_WEB_CLIENT_ID,
-    ACCESS_KEY_ID: process.env.ACCESS_KEY_ID,
-    SECRET_ACCESS_KEY: process.env.SECRET_ACCESS_KEY
+  IDENTITY_POOL_ID: process.env.IDENTITY_POOL_ID,
+  USER_POOL_ID: process.env.USER_POOL_ID,
+  USER_POOL_WEB_CLIENT_ID: process.env.USER_POOL_WEB_CLIENT_ID,
+  ACCESS_KEY_ID: process.env.ACCESS_KEY_ID,
+  SECRET_ACCESS_KEY: process.env.SECRET_ACCESS_KEY
 }
 ```
 Create a local `.env` file into the root folder and simply add your secrets.
