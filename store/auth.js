@@ -2,36 +2,47 @@ import { Auth } from 'aws-amplify'
 
 export const state = () => ({
   isAuthenticated: false,
-  user: null
+  user: null,
+  pending: false
 })
 
 export const mutations = {
-  set (state, user) {
+  setUser (state, user) {
     state.isAuthenticated = !!user
     state.user = user
+  },
+
+  setPending (state, status) {
+    state.pending = status
   }
 }
 
 export const actions = {
   async load ({ commit }) {
     try {
+      commit('setPending', true)
       const user = await Auth.currentAuthenticatedUser()
-      commit('set', user)
-      return user
+      commit('setUser', user)
     } catch (error) {
-      commit('set', null)
+      commit('setUser', null)
+    } finally {
+      commit('setPending', false)
     }
   },
 
   async login ({ commit }, { username, password }) {
-    const user = await Auth.signIn(username, password)
-    commit('set', user)
-    return user
+    try {
+      commit('setPending', true)
+      const user = await Auth.signIn(username, password)
+      commit('setUser', user)
+    } finally {
+      commit('setPending', false)
+    }
   },
 
   async logout ({ commit }) {
     await Auth.signOut()
-    commit('set', null)
+    commit('setUser', null)
   },
 
   async register (_, { email, password }) {
@@ -54,10 +65,9 @@ export const actions = {
     try {
       await Auth.completeNewPassword(user, password)
       const currentUser = await Auth.currentAuthenticatedUser()
-      commit('set', currentUser)
-      return currentUser
+      commit('setUser', currentUser)
     } catch (error) {
-      commit('set', null)
+      commit('setUser', null)
     }
   }
 }

@@ -54,35 +54,33 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 import { FormValidationRules } from '~/helpers/utils'
 
 export default {
   data () {
     return {
       isValid: false,
-      pending: false,
       showPassword: false,
       credentials: {
         username: '',
         password: ''
       },
-      rules: FormValidationRules,
-      user: null
+      rules: FormValidationRules
     }
   },
+
+  computed: { ...mapState('auth', ['pending']) },
 
   methods: {
     ...mapActions('auth', ['login']),
 
     async performLogin () {
-      this.pending = true
       try {
         await this.login(this.credentials)
-        this.$router.push('/')
+        await this.$router.push('/')
       } catch ({ message }) {
         console.error(message)
-        this.pending = false
       }
     }
   }
