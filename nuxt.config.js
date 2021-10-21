@@ -4,6 +4,8 @@ export default {
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
   ssr: false,
 
+  target: 'static',
+
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     titleTemplate: '%s - nuxt-aws-auth-starter-pack',
@@ -19,8 +21,7 @@ export default {
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
-  css: [
-  ],
+  css: [],
 
   // Environment Variables
   env: {
@@ -51,10 +52,9 @@ export default {
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
-    // https://go.nuxtjs.dev/eslint
-    '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/vuetify
-    '@nuxtjs/vuetify'
+    '@nuxtjs/vuetify',
+    '@nuxt/typescript-build'
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
@@ -90,6 +90,5 @@ export default {
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
-  build: {
-  }
+  build: {}
 }
