@@ -37,7 +37,7 @@ export default {
   plugins: [
     '~/plugins/amplify.ts',
     '~/plugins/auth.ts',
-    '~/plugins/axios.js'
+    '~/plugins/axios.ts'
   ],
 
   /*

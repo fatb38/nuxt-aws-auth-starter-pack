@@ -45,7 +45,7 @@ Now you can test : just sign in with your AWS username / password !!
 ## Usage
 
 ### Amplify authentication methods
-All auth methods are available in Vue store actions into [`auth.ts`](./store/auth.js).  
+All auth methods are available in Vue store actions into [`auth.ts`](./store/auth.ts).  
 You can use it globally into the app with `$store.dispatch` or `mapActions` (see [Vuex guide](https://vuex.vuejs.org/fr/guide/actions.html) for store usage).  
 All methods are asynchronous and return the Amplify response object.
 
@@ -85,11 +85,11 @@ By default, it provides authentication state, user, email and profil picture, bu
 
 ### Tokens into requests
 Axios is already set up to add the JWT token on each request and automatically refreshes it if needed.  
-The configuration is in the plugin folder into [`axios.js`](./plugins/axios.js) file
+The configuration is in the plugin folder into [`axios.ts`](./plugins/axios.ts) file
 
 
 ### Public and Protected Routes
-You can protect one or more routes, or the whole app if you need, thanks to the middleware [`authenticated.js`](./middleware/authenticated.js).  
+You can protect one or more routes, or the whole app if you need, thanks to the middleware [`authenticated.ts`](./middleware/authenticated.ts).  
 A Nuxt middleware is a function executed before rendering a page. You can easily redirect user if not authenticated.  
 In this template, all routes are protected, the user is simply redirected towards login page if not authenticated. You also can add some public routes, see the comment below.
 
