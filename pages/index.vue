@@ -8,7 +8,7 @@
         border="left"
         dense
       >
-        Welcome to the home page <span class="blue--text">{{ $auth.email }}</span><br>
+        Welcome to the home page <span class="blue--text">{{ $auth.user.email }}</span><br>
         You're logged in !
       </v-alert>
       <v-btn

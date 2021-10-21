@@ -1,12 +1,15 @@
-import Amplify from 'aws-amplify'
+import amplify from 'aws-amplify'
 import AWS from 'aws-sdk'
 
 AWS.config.update({
   region: process.env.REGION,
-  credentials: new AWS.Credentials(process.env.ACCESS_KEY_ID, process.env.SECRET_ACCESS_KEY)
+  credentials: new AWS.Credentials(
+    process.env.ACCESS_KEY_ID ?? '',
+    process.env.SECRET_ACCESS_KEY ?? ''
+  )
 })
 
-Amplify.configure({
+amplify.configure({
   // REQUIRED - Amazon Cognito Identity Pool ID
   identityPoolId: process.env.IDENTITY_POOL_ID,
   // REQUIRED - Amazon Cognito Region

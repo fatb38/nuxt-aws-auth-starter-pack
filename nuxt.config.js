@@ -35,8 +35,8 @@ export default {
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
-    '~/plugins/amplify.js',
-    '~/plugins/auth.js',
+    '~/plugins/amplify.ts',
+    '~/plugins/auth.ts',
     '~/plugins/axios.js'
   ],
 

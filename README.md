@@ -45,13 +45,13 @@ Now you can test : just sign in with your AWS username / password !!
 ## Usage
 
 ### Amplify authentication methods
-All auth methods are available in Vue store actions into [`auth.js`](./store/auth.js).  
+All auth methods are available in Vue store actions into [`auth.ts`](./store/auth.js).  
 You can use it globally into the app with `$store.dispatch` or `mapActions` (see [Vuex guide](https://vuex.vuejs.org/fr/guide/actions.html) for store usage).  
 All methods are asynchronous and return the Amplify response object.
 
 Here is the login example :
 ```javascript
-// into store auth.js
+// into store auth.ts
 async login ({ commit }, { username, password }) {
   const user = await Auth.signIn(username, password)
   commit('set', user)
@@ -79,7 +79,7 @@ After a successful login, all user information are saved into auth store object 
 
 
 ### AuthService Class
-The app comes with a custom [`auth.js`](./plugins/auth.js) plugin that builds a `AuthService Class` available with global `$auth` variable.  
+The app comes with a custom [`auth.ts`](./plugins/auth.ts) plugin that builds a `AuthService Class` available with global `$auth` variable.  
 It's useful to add some getters to the user object (for example to check if authenticated or to get email etc...) rather than getting through the store state.    
 By default, it provides authentication state, user, email and profil picture, but let free to add your own getters !
 
